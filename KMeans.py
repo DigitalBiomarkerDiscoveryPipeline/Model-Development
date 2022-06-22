@@ -35,7 +35,9 @@ def elbow_method(data, num_k, n_init=10, max_iter=300):
 
 
 '''Generate random sample (write another method to get data later?), just to show an example'''
+# Assume we get this from the pre-processed data?
 data, y = make_blobs(n_samples = 400, centers = 6, cluster_std = 0.60, random_state = 0)
+
 # plt.scatter(data[:, 0], data[:, 1])
 # plt.show()
 elbow_method(data, 10)
