@@ -4,7 +4,7 @@
 2. Call functions on t_test() class to get desired values
 
 ```python
-# For one sample t-test, call below function to get t-test statistic based on that user wants to test
+# For one sample t-test, call below function to get t-test statistic based on a population mean that user wants to test
 t_test(data1).one_sample_t_test(mean, 'two-sided')      # For two-sided test
 t_test(data1).one_sample_t_test(mean, 'less')           # For one-sided, less than
 t_test(data1).one_sample_t_test(mean, 'greater')        # For one-sided, greater than 
