@@ -2,11 +2,16 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-'''
-Regression class takes in a dataframe of values with two columns, which are respectively x and y
-User can call respective functions to get regression analysis outputs
-'''
 class LinearRegression():
+    """
+    Regression class takes in a dataframe of values with two columns, which are respectively x and y
+    User can call respective functions to get regression analysis outputs
+    
+    Parameters
+    ----------
+    df : (pandas.DataFrame) a pandas dataframe containing two columns, first being x-values, second
+    being y-values
+    """
     
     def __init__(self, data) -> None:
         self.df = pd.DataFrame({'x': data.iloc[:,0], 'y': data.iloc[:,1]})
@@ -14,7 +19,12 @@ class LinearRegression():
         self.alpha = None
     
     def get_alpha_beta(self):
-        '''return a tuple (paried values) of beta and alpha, with beta first, alpha second'''
+        """
+        Function that gets alpha and beta of the data in DataFrame
+        
+        Returns
+        -------
+        a tuple (paried values) of beta and alpha, with beta first, alpha second"""
         x_mean = np.mean(self.df['x'])
         y_mean = np.mean(self.df['y'])
         self.df['xy_cov'] = (self.df['x'] - x_mean)* (self.df['y'] - y_mean)
@@ -26,7 +36,13 @@ class LinearRegression():
         return beta, alpha
 
     def predict_y(self):
-        '''Obtain regression results, store into data frame, and return as an output'''
+        """
+        Obtain regression results, store into data frame, and return as an output
+        
+        Returns
+        -------
+        A column of DataFrame of predicted y-values
+        """
         self.get_alpha_beta()
         self.df['y_pred'] = self.alpha + self.beta*self.df['x']
         return self.df['y_pred']
